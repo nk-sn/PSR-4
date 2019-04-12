@@ -66,11 +66,11 @@ class name, namespace prefix, and base directory.
 | \Zend\Acl                     | Zend               | /usr/includes/Zend/      | /usr/includes/Zend/Acl.php
 
 For example implementations of autoloaders conforming to the specification,
-please see the [examples file][]. Example implementations MUST NOT be regarded
+please see the [примеры файлов][]. Example implementations MUST NOT be regarded
 as part of the specification and MAY change at any time.
 
 [автозагрузки]: http://php.net/autoload
 [PSR-0]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md
-[examples file]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader-examples.md
+[примеры файлов]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader-examples.md
 [PSR-4]: https://github.com/php-fig/fig-standards/edit/master/accepted/PSR-4-autoloader.md
 [RFC 2119]: http://www.ietf.org/rfc/rfc2119.txt
