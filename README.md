@@ -15,59 +15,55 @@
 
 1. Термин "класс" относится к классам, интерфейсам, трейтам, и к другим похожим структурам.
 
-2. A fully qualified class name has the following form:
+2. Полное имя класса имеет следующую форму:
 
-        \<NamespaceName>(\<SubNamespaceNames>)*\<ClassName>
+        \<ПространствоИмен>(\<ПодпространствоИмен>)*\<ИмяКласса>
 
-    1. The fully qualified class name MUST have a top-level namespace name,
-       also known as a "vendor namespace".
+    1. Полное имя класса ОБЯЗАНО содержать пространство имен верхнего уровня,
+       также известное как "пространство имен поставщика".
 
-    2. The fully qualified class name MAY have one or more sub-namespace
-       names.
+    2. Полное имя класса МОЖЕТ содержать одно или более подпространств имен.
 
-    3. The fully qualified class name MUST have a terminating class name.
+    3. Полное имя класса ОБЯЗАНО содержать заверщающее имя класса.
 
-    4. Underscores have no special meaning in any portion of the fully
-       qualified class name.
+    4. Подчеркивания не имеют особого значения в любой части полного имени класса.
 
-    5. Alphabetic characters in the fully qualified class name MAY be any
-       combination of lower case and upper case.
+    5. Буквенные символы в полном имени класса МОГУТ быть в любой комбинации нижнего и верхнего регистра.
 
-    6. All class names MUST be referenced in a case-sensitive fashion.
+    6. Все имена классов ОБЯЗАНЫ быть связаными в регистро-чувствительном стиле.
 
-3. When loading a file that corresponds to a fully qualified class name ...
+3. При загрузке файла, который соответствует полному имени класса ...
 
-    1. A contiguous series of one or more leading namespace and sub-namespace
-       names, not including the leading namespace separator, in the fully
-       qualified class name (a "namespace prefix") corresponds to at least one
-       "base directory".
+    1. Смежная серия одного или более ведущего пространства имен и подпространств имен, 
+    не включает разделитель ведущего пространства имен, в полном имени класса ("префикс пространства имен") 
+    соответствует по крайней мере одной "базовой директории".
 
-    2. The contiguous sub-namespace names after the "namespace prefix"
-       correspond to a subdirectory within a "base directory", in which the
-       namespace separators represent directory separators. The subdirectory
-       name MUST match the case of the sub-namespace names.
+    2. Смежные подпространства имен после "префикса пространства имен"
+       относится к поддиректории в "базовой директории", в которой
+       разделитель пространства имен обозначает разделить директории. Имя поддиректории
+       ОБЯЗАНО соответствовать регистру подпространства имен.
 
-    3. The terminating class name corresponds to a file name ending in `.php`.
-       The file name MUST match the case of the terminating class name.
+    3. Завершающее имя класса относится к названию файла, заканчивающимся расширением `.php`.
+       Имя файла ОБЯЗАНО соответствовать регистру имени завершающего класса.
 
-4. Autoloader implementations MUST NOT throw exceptions, MUST NOT raise errors
-   of any level, and SHOULD NOT return a value.
+4. Реализация автозагрузчика ОБЯЗАНА НЕ бросать исключений, ОБЯЗАНА НЕ поднимать ошибки
+   любого уровня, и она СЛЕДУЕТ НЕ возвращать значений.
 
 ## 3. Примеры
 
-The table below shows the corresponding file path for a given fully qualified
-class name, namespace prefix, and base directory.
+Таблица снизу показывет соответствующий путь файла для полного имени класса, 
+префикс пространства имен, и базовую директорию.
 
-| Fully Qualified Class Name    | Namespace Prefix   | Base Directory           | Resulting File Path
-| ----------------------------- |--------------------|--------------------------|-------------------------------------------
-| \Acme\Log\Writer\File_Writer  | Acme\Log\Writer    | ./acme-log-writer/lib/   | ./acme-log-writer/lib/File_Writer.php
-| \Aura\Web\Response\Status     | Aura\Web           | /path/to/aura-web/src/   | /path/to/aura-web/src/Response/Status.php
-| \Symfony\Core\Request         | Symfony\Core       | ./vendor/Symfony/Core/   | ./vendor/Symfony/Core/Request.php
-| \Zend\Acl                     | Zend               | /usr/includes/Zend/      | /usr/includes/Zend/Acl.php
+| Полное имя класса            | Префикс пространства имен | Базовая директория     | Результирующий путь файла
+| ---------------------------- |-------------------------- |------------------------|-------------------------------------------
+| \Acme\Log\Writer\File_Writer | Acme\Log\Writer           | ./acme-log-writer/lib/ | ./acme-log-writer/lib/File_Writer.php
+| \Aura\Web\Response\Status    | Aura\Web                  | /path/to/aura-web/src/ | /path/to/aura-web/src/Response/Status.php
+| \Symfony\Core\Request        | Symfony\Core              | ./vendor/Symfony/Core/ | ./vendor/Symfony/Core/Request.php
+| \Zend\Acl                    | Zend                      | /usr/includes/Zend/    | /usr/includes/Zend/Acl.php
 
-For example implementations of autoloaders conforming to the specification,
-please see the [примеры файлов][]. Example implementations MUST NOT be regarded
-as part of the specification and MAY change at any time.
+Для просмотра примеров реализации автозагрузчиков, соответствующим спецификации,
+пожалуйста, откройте [примеры файлов]. Примеры реализации ОБЯЗАНЫ НЕ рассматриваться
+как часть спецификации и МОГУТ быть изменены в любое время.
 
 [автозагрузки]: http://php.net/autoload
 [PSR-0]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md
